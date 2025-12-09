@@ -50,14 +50,14 @@ class InAppPurchaseRevCatCubit extends InAppPurchaseCubit {
 
   @override
   Future<void> checkUserSubscription() async {
-    // if (Flavor.isStaging()) {
-    //   emit(
-    //     SyncSharedPreferences.simulatedSubscription.value
-    //         ? InAppPurchaseState.active(_simulatedValidSubscriptionResponse)
-    //         : const InAppPurchaseState.inactive(),
-    //   );
-    //   return;
-    // }
+    if (Flavor.isStaging()) {
+      emit(
+        SyncSharedPreferences.simulatedSubscription.value
+            ? InAppPurchaseState.active(_simulatedValidSubscriptionResponse)
+            : const InAppPurchaseState.inactive(),
+      );
+      return;
+    }
     if (FirebaseAuth.instance.currentUser == null) {
       emit(const InAppPurchaseState.userNotLoggedIn());
     } else {
