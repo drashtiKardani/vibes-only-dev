@@ -1,0 +1,18 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    # Ignore generated files
+    - lib/**/*.g.dart
+    - lib/generated/**
+
+  errors:
+    unused_import: error
+    dead_code: error
+    use_build_context_synchronously: ignore
+    implementation_imports: ignore
+
+linter:
+  rules:
+    avoid_void_async: true
+    avoid_print: false

@@ -1,0 +1,87 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "vibes-only-fbb4c",
+                    "appId": "1:511710560633:android:4bd5f3b376ede34363efa8",
+                    "fileOutput": "android/app/google-services.json"
+                },
+                "buildConfigurations": {
+                    "src/staging": {
+                        "projectId": "vibes-only---staging",
+                        "appId": "1:753327348014:android:71d4de36056619f0f002bf",
+                        "fileOutput": "android/app/src/staging/google-services.json"
+                    },
+                    ".": {
+                        "projectId": "vibes-only-fbb4c",
+                        "appId": "1:511710560633:android:fd7f004a3f20292e63efa8",
+                        "fileOutput": "android/app/google-services.json"
+                    }
+                }
+            },
+            "ios": {
+                "default": {
+                    "projectId": "vibes-only-fbb4c",
+                    "appId": "1:511710560633:ios:102a500875e0484863efa8",
+                    "uploadDebugSymbols": true,
+                    "fileOutput": "ios/Runner/GoogleService-Info.plist"
+                },
+                "buildConfigurations": {
+                    "Release-staging": {
+                        "projectId": "vibes-only---staging",
+                        "appId": "1:753327348014:ios:bae967a6eafeb102f002bf",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/GoogleService-Info/staging/GoogleService-Info.plist"
+                    },
+                    "Debug-staging": {
+                        "projectId": "vibes-only---staging",
+                        "appId": "1:753327348014:ios:bae967a6eafeb102f002bf",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/GoogleService-Info/staging/GoogleService-Info.plist"
+                    },
+                    "Release-production": {
+                        "projectId": "vibes-only-fbb4c",
+                        "appId": "1:511710560633:ios:102a500875e0484863efa8",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/GoogleService-Info/production/GoogleService-Info.plist"
+                    },
+                    "Debug-production": {
+                        "projectId": "vibes-only-fbb4c",
+                        "appId": "1:511710560633:ios:102a500875e0484863efa8",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/GoogleService-Info/production/GoogleService-Info.plist"
+                    },
+                    "Profile-production": {
+                        "projectId": "vibes-only-fbb4c",
+                        "appId": "1:511710560633:ios:102a500875e0484863efa8",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/GoogleService-Info/production/GoogleService-Info.plist"
+                    },
+                    "Profile-staging": {
+                        "projectId": "vibes-only---staging",
+                        "appId": "1:753327348014:ios:bae967a6eafeb102f002bf",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/GoogleService-Info/staging/GoogleService-Info.plist"
+                    }
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "vibes-only-fbb4c",
+                    "configurations": {
+                        "android": "1:511710560633:android:fd7f004a3f20292e63efa8",
+                        "ios": "1:511710560633:ios:102a500875e0484863efa8"
+                    }
+                },
+                "lib/firebase_options_staging.dart": {
+                    "projectId": "vibes-only---staging",
+                    "configurations": {
+                        "android": "1:753327348014:android:71d4de36056619f0f002bf",
+                        "ios": "1:753327348014:ios:bae967a6eafeb102f002bf"
+                    }
+                }
+            }
+        }
+    }
+}

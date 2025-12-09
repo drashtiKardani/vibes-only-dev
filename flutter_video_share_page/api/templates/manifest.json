@@ -1,0 +1,35 @@
+{
+    "name": "Vibes Only",
+    "short_name": "VibesOnly",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#CE4C68",
+    "theme_color": "#CE4C68",
+    "description": "Landing page for shared videos from the app, available at share.vibesonly.com",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo COPY LICENSE FILE
+
+cp LICENSE sealed_annotations/
+cp LICENSE example/
+cp LICENSE sealed_generators/
+cp LICENSE sealed_writer/
+
+echo DONE

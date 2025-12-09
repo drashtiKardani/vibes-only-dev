@@ -1,0 +1,12 @@
+.idea/
+
+coverage/
+dart_coverage/
+html/
+
+flutter/
+
+temp/
+tmp/
+
+out/

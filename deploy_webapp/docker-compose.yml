@@ -1,0 +1,39 @@
+version: '3'
+services:
+  #
+  # Nginx
+  #
+  nginx:
+    image: valian/docker-nginx-auto-ssl:latest
+    ports:
+      - 80:80
+      - 443:443
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ssl_data:/etc/resty-auto-ssl
+      - ./conf.d:/etc/nginx/conf.d
+    environment:
+      SITES: 'admin78.vibesonly.com=admin78:80;share.vibesonly.com=share:80;vo-panel.6thsolution.tech=vopanel:80'
+
+    depends_on:
+      - vopanel
+      - admin78
+      - share
+
+  vopanel:
+    image: vibes-panel:vopanel
+  admin78:
+    image: vibes-panel:admin78
+  share:
+    image: vibes-share-page:prod
+    command: gunicorn -w 3 -t 60 -b 0.0.0.0:80 app:app
+#
+# volumes
+#
+volumes:
+  ssl_data:
+#
+# Networks
+#

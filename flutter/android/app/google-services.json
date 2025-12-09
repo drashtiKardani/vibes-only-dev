@@ -1,0 +1,227 @@
+{
+  "project_info": {
+    "project_number": "511710560633",
+    "firebase_url": "https://vibes-only-fbb4c-default-rtdb.firebaseio.com",
+    "project_id": "vibes-only-fbb4c",
+    "storage_bucket": "vibes-only-fbb4c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511710560633:android:32f891b6d2b23b8163efa8",
+        "android_client_info": {
+          "package_name": "com.vibesonly.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511710560633-jh9cho3kd5nsor1ti56m147ffl65fder.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.app",
+            "certificate_hash": "68a36269a84366dcd9a9c553e93b843592c18c84"
+          }
+        },
+        {
+          "client_id": "511710560633-kpfaqr279ja35nhqab940roo7nntedm1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.app",
+            "certificate_hash": "e88c88eb1ddc4c1263d5074a9d54d2c1bab4ea7d"
+          }
+        },
+        {
+          "client_id": "511710560633-uusu3do5akbt7v1rmdnu7ceecoonrn0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.app",
+            "certificate_hash": "214c421943bc4da847ec959b1fc9d96882f913c8"
+          }
+        },
+        {
+          "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ1Vjv8KkkXk_ZIz2pqOeHfsNFxtZ99_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511710560633-8rv2n2sboiahif3nst0ondh660ae4fo1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vibesonly.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511710560633:android:4bd5f3b376ede34363efa8",
+        "android_client_info": {
+          "package_name": "com.vibesonly.controller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511710560633-0pq6n2a02li4s5vhefju6l6bac9h6upk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller",
+            "certificate_hash": "68a36269a84366dcd9a9c553e93b843592c18c84"
+          }
+        },
+        {
+          "client_id": "511710560633-hib4g9tn6s37j517ii712ape9003m1bu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller",
+            "certificate_hash": "1211ae8d7346a64f721d3086dc960a3079f1ed00"
+          }
+        },
+        {
+          "client_id": "511710560633-q7ut5ctrumc0lvoso03pgqh0be81654u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller",
+            "certificate_hash": "e88c88eb1ddc4c1263d5074a9d54d2c1bab4ea7d"
+          }
+        },
+        {
+          "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ1Vjv8KkkXk_ZIz2pqOeHfsNFxtZ99_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511710560633-8rv2n2sboiahif3nst0ondh660ae4fo1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vibesonly.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511710560633:android:445b21458771740363efa8",
+        "android_client_info": {
+          "package_name": "com.vibesonly.controller2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511710560633-eep3h2avg4a1unssengh2acsgihsjsm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller2",
+            "certificate_hash": "e88c88eb1ddc4c1263d5074a9d54d2c1bab4ea7d"
+          }
+        },
+        {
+          "client_id": "511710560633-i8jedk6080hhkoissqghca951fmerlkd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller2",
+            "certificate_hash": "0f22a375fd502e87eecb6ecc7dec626154503d3f"
+          }
+        },
+        {
+          "client_id": "511710560633-ktqtpgoaoj396ok9ip03glhco6isvj34.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller2",
+            "certificate_hash": "68a36269a84366dcd9a9c553e93b843592c18c84"
+          }
+        },
+        {
+          "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ1Vjv8KkkXk_ZIz2pqOeHfsNFxtZ99_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511710560633-8rv2n2sboiahif3nst0ondh660ae4fo1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vibesonly.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511710560633:android:fd7f004a3f20292e63efa8",
+        "android_client_info": {
+          "package_name": "com.vibesonly.live1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ1Vjv8KkkXk_ZIz2pqOeHfsNFxtZ99_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511710560633-cfa93t1oejjostp6le1af425rtsufkvt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511710560633-8rv2n2sboiahif3nst0ondh660ae4fo1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vibesonly.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

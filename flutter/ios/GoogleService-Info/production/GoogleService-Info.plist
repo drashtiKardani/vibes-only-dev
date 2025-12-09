@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>511710560633-8rv2n2sboiahif3nst0ondh660ae4fo1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.511710560633-8rv2n2sboiahif3nst0ondh660ae4fo1</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>511710560633-0pq6n2a02li4s5vhefju6l6bac9h6upk.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDDodUilyGmHl7I_G-Gf2_NOvSgdJpSb-c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>511710560633</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.vibesonly.app</string>
+	<key>PROJECT_ID</key>
+	<string>vibes-only-fbb4c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vibes-only-fbb4c.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:511710560633:ios:102a500875e0484863efa8</string>
+	<key>DATABASE_URL</key>
+	<string>https://vibes-only-fbb4c-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,9 @@
+.git
+.idea
+.vscode
+deploy
+venv
+venv_master
+db_backup
+dokcer-compose.yml
+dokcer-compose-pro.yml

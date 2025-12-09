@@ -1,0 +1,28 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.vibesonly.live1.staging",
+            "sha256_cert_fingerprints": [
+                "9A:2C:04:F2:89:CD:EB:4A:F7:24:46:4F:B7:2B:3B:EC:DF:78:1C:BE:F4:ED:25:27:77:63:CC:F5:A8:DA:69:E2"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.vibesonly.live1",
+            "sha256_cert_fingerprints": [
+                "9A:2C:04:F2:89:CD:EB:4A:F7:24:46:4F:B7:2B:3B:EC:DF:78:1C:BE:F4:ED:25:27:77:63:CC:F5:A8:DA:69:E2",
+                "86:3C:73:78:20:A9:E6:D4:F8:C5:B6:A9:E4:76:E5:C9:AA:ED:BB:E4:C5:9A:7F:19:47:29:F4:58:5B:2B:A3:45",
+                "B1:45:E6:D1:C9:2D:DA:22:D5:BD:1D:CD:F0:36:25:66:52:82:F3:4D:B9:62:A3:7A:7F:8E:D7:B2:27:1B:1F:44"
+            ]
+        }
+    }
+]

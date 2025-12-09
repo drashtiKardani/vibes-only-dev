@@ -1,0 +1,61 @@
+name: vibes_only_frontends
+
+packages:
+  - flutter
+  - flutter_mobile_app_presentation
+  - flutter_common
+  - flutter_panel
+  - flutter_video_share_page
+
+scripts:
+  admin_panel:init:
+    description: Initialize the admin panel project, by running all the related code generators.
+    run: |
+      melos run common:build_runner
+      melos run mobile_app_presentation:intl
+      melos run mobile_app_presentation:build_runner
+      melos run admin_panel:intl
+      melos run admin_panel:build_runner
+
+  vibes_only:build_runner:
+    run: |
+      melos exec -- \
+        "flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Run a build_runner build in the vibes_only package.
+    packageFilters:
+      scope: 'vibes_only'
+  mobile_app_presentation:intl:
+    run: |
+      melos exec -- \
+        "flutter pub run intl_utils:generate"
+    description: Generate localization files.
+    packageFilters:
+      scope: 'flutter_mobile_app_presentation'
+  mobile_app_presentation:build_runner:
+    run: |
+      melos exec -- \
+        "flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Run a build_runner build in the flutter_mobile_app_presentation package.
+    packageFilters:
+      scope: 'flutter_mobile_app_presentation'
+  admin_panel:intl:
+    run: |
+      melos exec -- \
+        "flutter pub run intl_utils:generate"
+    description: Generate localization files.
+    packageFilters:
+      scope: 'flutter_panel'
+  admin_panel:build_runner:
+    run: |
+      melos exec -- \
+        "flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Run a build_runner build in the admin panel web app.
+    packageFilters:
+      scope: 'flutter_panel'
+  common:build_runner:
+    run: |
+      melos exec -- \
+        "flutter pub run build_runner build --delete-conflicting-outputs"
+    description: Run a build_runner build in the common package.
+    packageFilters:
+      scope: 'vibes_common'

@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "753327348014",
+    "firebase_url": "https://vibes-only---staging-default-rtdb.firebaseio.com",
+    "project_id": "vibes-only---staging",
+    "storage_bucket": "vibes-only---staging.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753327348014:android:56230c6e5965b25af002bf",
+        "android_client_info": {
+          "package_name": "com.vibesonly.app.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753327348014-d5benel7m1so1gt8bc7jjofsfdvk0mbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.app.staging",
+            "certificate_hash": "e88c88eb1ddc4c1263d5074a9d54d2c1bab4ea7d"
+          }
+        },
+        {
+          "client_id": "753327348014-e6qr2p077sdsqapl6cnes674i25c7q88.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.app.staging",
+            "certificate_hash": "68a36269a84366dcd9a9c553e93b843592c18c84"
+          }
+        },
+        {
+          "client_id": "753327348014-l8mdo70iop0clgi8cqornjbflcab3nsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8XR3IaoWZkcYIE8gh9_I8HWiP06XAheM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753327348014-l8mdo70iop0clgi8cqornjbflcab3nsm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "753327348014-j4umgtmoh4hd9ntp16v49utsqu36toii.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vibesonly.app.staging",
+                "app_store_id": "1635470639"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753327348014:android:20cd04152e077ab1f002bf",
+        "android_client_info": {
+          "package_name": "com.vibesonly.controller.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753327348014-e7b6l6o70v4e76q9308qejb3lb5acp83.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller.staging",
+            "certificate_hash": "e88c88eb1ddc4c1263d5074a9d54d2c1bab4ea7d"
+          }
+        },
+        {
+          "client_id": "753327348014-tn0i6g7ulrrpgiredv70ki05lje5h419.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vibesonly.controller.staging",
+            "certificate_hash": "68a36269a84366dcd9a9c553e93b843592c18c84"
+          }
+        },
+        {
+          "client_id": "753327348014-l8mdo70iop0clgi8cqornjbflcab3nsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8XR3IaoWZkcYIE8gh9_I8HWiP06XAheM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753327348014-l8mdo70iop0clgi8cqornjbflcab3nsm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "753327348014-j4umgtmoh4hd9ntp16v49utsqu36toii.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vibesonly.app.staging",
+                "app_store_id": "1635470639"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753327348014:android:71d4de36056619f0f002bf",
+        "android_client_info": {
+          "package_name": "com.vibesonly.controller2.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753327348014-l8mdo70iop0clgi8cqornjbflcab3nsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8XR3IaoWZkcYIE8gh9_I8HWiP06XAheM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753327348014-l8mdo70iop0clgi8cqornjbflcab3nsm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "753327348014-j4umgtmoh4hd9ntp16v49utsqu36toii.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vibesonly.app.staging",
+                "app_store_id": "1635470639"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

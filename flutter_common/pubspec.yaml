@@ -1,0 +1,30 @@
+name: vibes_common
+description: Common Widgets across web and mobile
+version: 0.0.1
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sealed_annotations: ^1.13.0
+  json_annotation: ^4.9.0
+  cached_network_image: ^3.1.0
+  flutter_svg: ^2.0.2
+  dio: ^5.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  sealed_generators:
+    path: ../packages/dart_sealed-patch-1/sealed_generators
+  json_serializable: ^6.11.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/

@@ -1,0 +1,22 @@
+{
+    "applinks": {
+        "details": [
+            {
+                "appIDs": [
+                    "S7M3R74W7Q.com.vibesonly.app"
+                ],
+                "components": [
+                    {
+                        "/": "/*",
+                        "comment": "Matches any URL with a path that starts with /."
+                    }
+                ]
+            }
+        ]
+    },
+    "webcredentials": {
+        "apps": [
+            "S7M3R74W7Q.com.vibesonly.app"
+        ]
+    }
+}
