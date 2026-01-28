@@ -810,7 +810,7 @@ class _SwiperItem extends StatelessWidget {
                               borderRadius: BorderRadius.circular(50),
                             ),
                             child: Text(
-                              'Watch now',
+                              'Listen now',
                               style: Theme.of(context).textTheme.headlineMedium
                                   ?.copyWith(fontSize: 14, color: Colors.black),
                             ),
