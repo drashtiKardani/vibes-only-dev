@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mobile_app_presentation/controllers.dart';
 import 'package:flutter_mobile_app_presentation/flavors.dart';
 import 'package:flutter_mobile_app_presentation/flavors/dialog_staging_options.dart';
 import 'package:flutter_mobile_app_presentation/gen/assets.gen.dart';
@@ -17,8 +18,8 @@ import 'package:vibes_common/vibes.dart';
 
 class DiscoveryScreen extends StatefulWidget {
   final Widget? settingsScreen;
-
-  const DiscoveryScreen({super.key, this.settingsScreen});
+  final Widget? whitneyScreen;
+  const DiscoveryScreen({super.key, this.settingsScreen, this.whitneyScreen});
 
   @override
   State createState() => _DiscoveryScreenState();
@@ -62,7 +63,10 @@ class _DiscoveryScreenState extends State<DiscoveryScreen>
         ),
         Column(
           children: [
-            _VibeAppBar(settingsScreen: widget.settingsScreen),
+            _VibeAppBar(
+              settingsScreen: widget.settingsScreen,
+              whitneyScreen: widget.whitneyScreen,
+            ),
             Expanded(
               child: BlocBuilder<DiscoveryCubit, DiscoveryState>(
                 builder: (context, state) {
@@ -138,8 +142,9 @@ class _DiscoveryScreenState extends State<DiscoveryScreen>
 
 class _VibeAppBar extends StatelessWidget {
   final Widget? settingsScreen;
+  final Widget? whitneyScreen;
 
-  const _VibeAppBar({this.settingsScreen});
+  const _VibeAppBar({this.settingsScreen, this.whitneyScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -164,6 +169,29 @@ class _VibeAppBar extends StatelessWidget {
         ),
       ),
       actions: [
+        if (whitneyScreen != null)
+          CupertinoButton(
+            padding: EdgeInsets.zero,
+            child: Assets.svgs.vibesAi.svg(
+              height: 28,
+              width: 28,
+              package: 'flutter_mobile_app_presentation',
+              color: context.colorScheme.onSurface,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return BlocProvider(
+                      create: (context) => VibesAiCubit(),
+                      child: whitneyScreen!,
+                    );
+                  },
+                ),
+              );
+            },
+          ),
         if (settingsScreen != null)
           CupertinoButton(
             padding: EdgeInsets.zero,

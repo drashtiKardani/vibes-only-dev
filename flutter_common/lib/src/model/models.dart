@@ -1059,6 +1059,7 @@ class Commodity {
   final String? motorName1;
   final String? motorName2;
   final String? motorName3;
+  final bool isActive;
 
   Commodity({
     required this.id,
@@ -1075,6 +1076,7 @@ class Commodity {
     this.motorName1,
     this.motorName2,
     this.motorName3,
+    this.isActive = true,
   });
 
   factory Commodity.fromJson(Map<String, dynamic> json) =>

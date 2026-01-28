@@ -3,17 +3,17 @@ import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_mobile_app_presentation/controllers.dart';
+// import 'package:flutter_mobile_app_presentation/controllers.dart';
 import 'package:flutter_mobile_app_presentation/gen/assets.gen.dart' as assets;
 import 'package:flutter_mobile_app_presentation/preferences.dart';
 import 'package:flutter_mobile_app_presentation/theme.dart';
 import 'package:flutter_mobile_app_presentation/toy.dart';
-import 'package:vibes_only/gen/assets.gen.dart';
+// import 'package:vibes_only/gen/assets.gen.dart';
 import 'package:vibes_only/src/feature/toy/remote_control/toy_remote_control.dart';
 import 'package:vibes_only/src/feature/toy/toy_connected_screen.dart';
 import 'package:vibes_only/src/feature/toy/toy_search_dialog.dart';
 import 'package:vibes_only/src/feature/toy/toy_state_extension.dart';
-import 'package:vibes_only/src/feature/vibes_ai/vibes_ai_screen.dart';
+// import 'package:vibes_only/src/feature/vibes_ai/vibes_ai_screen.dart';
 import 'package:vibes_only/src/feature/vibes_tab/four_way_controller/four_way_controller_screen.dart';
 import 'package:vibes_only/src/feature/vibes_tab/four_way_controller/intro_screen.dart';
 import 'package:vibes_only/src/feature/vibes_tab/magic_wand/intro_screen.dart';
@@ -247,28 +247,28 @@ class VibesTab extends StatelessWidget {
                       ),
                       _RowButton(
                         icon: VibesV3.remoteControl,
-                        title: 'Long Distance',
+                        title: 'Long Distance Lover',
                         onPressed: () {
                           openRemoteLoverModeBottomSheet(context);
                         },
                       ),
-                      _RowButton(
-                        icon: Assets.svg.vibesAi.svg(height: 28, width: 28),
-                        title: 'Whitney',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return BlocProvider(
-                                  create: (context) => VibesAiCubit(),
-                                  child: const VibesAiScreen(),
-                                );
-                              },
-                            ),
-                          );
-                        },
-                      ),
+                      // _RowButton(
+                      //   icon: Assets.svg.vibesAi.svg(height: 28, width: 28),
+                      //   title: 'Whitney',
+                      //   onPressed: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //         builder: (context) {
+                      //           return BlocProvider(
+                      //             create: (context) => VibesAiCubit(),
+                      //             child: const VibesAiScreen(),
+                      //           );
+                      //         },
+                      //       ),
+                      //     );
+                      //   },
+                      // ),
                       if (!Platform.isAndroid)
                         _RowButton(
                           icon: VibesV3.shop,

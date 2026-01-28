@@ -90,9 +90,12 @@ class _CardGameScreenState extends State<CardGameScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CardGameCubit, CardGameState>(
+      listenWhen: (previous, current) =>
+          previous.promptType != current.promptType ||
+          previous.playType != current.playType,
       listener: (context, state) {
         print(
-          '[DEBUG] Current: playType=${state.playType}, promptType=${state.promptType}',
+          '[DEBUG] Current: playType=${state.playType}, promptType=${state.promptType} , pageIndex=${state.pageIndex}',
         );
 
         // This will be called with the NEW state after the cubit updates
@@ -139,10 +142,15 @@ class _CardGameScreenState extends State<CardGameScreen> {
               ? BackButtonAppBar(
                   context,
                   onPressed: () {
-                    _pageController.animateToPreviousPage();
-                    if (page.runtimeType == SelectPlayTypePage) {
-                      _gameCubit.onPlayTypeOrPromptTypeChanged(null, null);
+                    try {
+                      print(_pageController.pageOffset);
+                      _pageController.animateToPreviousPage();
+                    } catch (e) {
+                      print('Error animating to previous page: $e');
                     }
+                    // if (page.runtimeType == SelectPlayTypePage) {
+                    _gameCubit.onPlayTypeOrPromptTypeChanged(null, null);
+                    // }
                   },
                 )
               : null,

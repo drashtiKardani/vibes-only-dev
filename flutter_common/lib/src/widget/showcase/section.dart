@@ -68,10 +68,9 @@ class ShowcaseSection extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 16.0),
                   child: Text(
                     section.title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium
-                        ?.copyWith(fontSize: 18),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleMedium?.copyWith(fontSize: 18),
                   ),
                 ),
               ),
@@ -194,9 +193,7 @@ class SectionHorizontalListView extends StatelessWidget {
                         titleMaxLine: section.contentType == 'video' ? 2 : 1,
                         shouldShowStoryReadIndicator:
                             shouldShowStoryReadIndicatorFor != null &&
-                                shouldShowStoryReadIndicatorFor!(
-                                  items[index],
-                                ),
+                            shouldShowStoryReadIndicatorFor!(items[index]),
                       );
                     },
                   ),
@@ -206,12 +203,11 @@ class SectionHorizontalListView extends StatelessWidget {
                       totalDots: items.length,
                       currentIndex: currentIndex,
                       activeColor: Theme.of(context).colorScheme.onSurface,
-                      inactiveColor: Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withValues(alpha: 0.5),
+                      inactiveColor: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.5),
                     ),
-                  )
+                  ),
                 ],
               ),
             );
@@ -240,9 +236,7 @@ class SectionHorizontalListView extends StatelessWidget {
               titleMaxLine: section.contentType == 'video' ? 2 : 1,
               shouldShowStoryReadIndicator:
                   shouldShowStoryReadIndicatorFor != null &&
-                      shouldShowStoryReadIndicatorFor!(
-                        items[index],
-                      ),
+                  shouldShowStoryReadIndicatorFor!(items[index]),
             );
           },
         ),
@@ -374,7 +368,8 @@ class SectionGridView extends SectionHorizontalListView {
     return SliverLayoutBuilder(
       builder: (context, constraints) {
         const hGap = 15.0;
-        final columnWidth = (constraints.asBoxConstraints().maxWidth -
+        final columnWidth =
+            (constraints.asBoxConstraints().maxWidth -
                 hGap * (numColumns - 1)) /
             numColumns;
         return SliverGrid(
@@ -383,21 +378,18 @@ class SectionGridView extends SectionHorizontalListView {
             childAspectRatio: childAspectRatio,
             crossAxisSpacing: hGap,
           ),
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return showcaseCustom(
-                items[index],
-                onItemClicked,
-                shouldShowPremiumBadge,
-                titleMaxLine: 2,
-                width: columnWidth,
-                imageHeight: columnWidth / childImageAspectRatio,
-                bottomRight: bottomRightForItem?.call(items[index]),
-                imageBorderRadius: 15,
-              );
-            },
-            childCount: items.length,
-          ),
+          delegate: SliverChildBuilderDelegate((context, index) {
+            return showcaseCustom(
+              items[index],
+              onItemClicked,
+              shouldShowPremiumBadge,
+              titleMaxLine: 2,
+              width: columnWidth,
+              imageHeight: columnWidth / childImageAspectRatio,
+              bottomRight: bottomRightForItem?.call(items[index]),
+              imageBorderRadius: 15,
+            );
+          }, childCount: items.length),
         );
       },
     );
@@ -432,7 +424,8 @@ class InfiniteDotIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int maxVisibleDots = 5;
+    // changing max visible dots
+    int maxVisibleDots = totalDots;
 
     List<int> getVisibleDotIndexes() {
       if (totalDots <= maxVisibleDots) {

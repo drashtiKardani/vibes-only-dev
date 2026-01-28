@@ -11,12 +11,16 @@ import 'model.dart';
 typedef OnItemClicked = void Function(BuildContext, SectionItem);
 
 Widget chips(
-    BuildContext context, SectionItem item, OnItemClicked? onItemClicked) {
+  BuildContext context,
+  SectionItem item,
+  OnItemClicked? onItemClicked,
+) {
   return CupertinoButton(
     padding: EdgeInsets.zero,
     onPressed: () => onItemClicked?.call(context, item),
     child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.05),
@@ -26,17 +30,21 @@ Widget chips(
       ),
       child: Text(
         item.title,
+        textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontSize: 14,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+          fontSize: 14,
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
       ),
     ),
   );
 }
 
 Widget avatar(
-    BuildContext context, SectionItem item, OnItemClicked? onItemClicked) {
+  BuildContext context,
+  SectionItem item,
+  OnItemClicked? onItemClicked,
+) {
   return _OnPressed(
     item: item,
     onItemClicked: onItemClicked,
@@ -63,14 +71,13 @@ Widget avatar(
               item.title,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontSize: 12,
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onSurface
-                        .withValues(alpha: 0.8),
-                  ),
+                fontSize: 12,
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.8),
+              ),
             ),
-          )
+          ),
         ],
       ),
     ),
@@ -138,9 +145,14 @@ Widget showcaseSmall(
   );
 }
 
-Widget showcaseMedium(BuildContext context, SectionItem item,
-    OnItemClicked? onItemClicked, bool shouldShowPremiumBadge,
-    {int titleMaxLine = 1, bool? shouldShowStoryReadIndicator}) {
+Widget showcaseMedium(
+  BuildContext context,
+  SectionItem item,
+  OnItemClicked? onItemClicked,
+  bool shouldShowPremiumBadge, {
+  int titleMaxLine = 1,
+  bool? shouldShowStoryReadIndicator,
+}) {
   return _ShowcaseItem(
     item: item,
     width: 140,
@@ -176,9 +188,13 @@ Widget showcaseCustom(
   );
 }
 
-Widget showcaseExpanded(BuildContext context, SectionItem item,
-    OnItemClicked? onItemClicked, bool shouldShowPremiumBadge,
-    {bool? shouldShowStoryReadIndicator}) {
+Widget showcaseExpanded(
+  BuildContext context,
+  SectionItem item,
+  OnItemClicked? onItemClicked,
+  bool shouldShowPremiumBadge, {
+  bool? shouldShowStoryReadIndicator,
+}) {
   return _ShowcaseItem(
     item: item,
     width: 300,
@@ -261,7 +277,7 @@ class _PremiumBadge extends StatelessWidget {
             package: 'vibes_common',
             width: 40 * size / _defaultSize,
           ),
-        ]
+        ],
       ],
     );
   }
@@ -291,7 +307,7 @@ class _StoryReadIndicator extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-          )
+          ),
       ],
     );
   }
@@ -442,12 +458,11 @@ class _ShowcaseHorizontalItem extends StatelessWidget {
                     textAlign: TextAlign.justify,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onSurface
-                              .withValues(alpha: 0.8),
-                        ),
-                  )
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.8),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -527,9 +542,7 @@ class _PromotionItem extends StatelessWidget {
                               item.description,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
+                              style: Theme.of(context).textTheme.titleMedium
                                   ?.copyWith(
                                     fontSize: 13,
                                     color: Theme.of(context)
@@ -544,7 +557,7 @@ class _PromotionItem extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -607,9 +620,7 @@ class _CardItem extends StatelessWidget {
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: item.backgroundColor,
-                        ),
+                        decoration: BoxDecoration(color: item.backgroundColor),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -625,9 +636,7 @@ class _CardItem extends StatelessWidget {
                                 item.description,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
+                                style: Theme.of(context).textTheme.titleMedium
                                     ?.copyWith(
                                       fontSize: 13,
                                       color: Theme.of(context)
@@ -641,9 +650,7 @@ class _CardItem extends StatelessWidget {
                             Text(
                               tags,
                               overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
+                              style: Theme.of(context).textTheme.titleMedium
                                   ?.copyWith(
                                     fontSize: 12,
                                     color: Theme.of(context)
@@ -661,7 +668,7 @@ class _CardItem extends StatelessWidget {
               ),
             ),
           ),
-          _GradientNumberText(index: index)
+          _GradientNumberText(index: index),
         ],
       ),
     );
@@ -682,7 +689,7 @@ class _GradientNumberText extends StatelessWidget {
           return LinearGradient(
             colors: [
               Theme.of(context).colorScheme.onSurface,
-              const Color(0xff999999)
+              const Color(0xff999999),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -698,10 +705,10 @@ class _GradientNumberText extends StatelessWidget {
             height: 0,
           ),
           style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                fontSize: 70,
-                height: 0,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
+            fontSize: 70,
+            height: 0,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
       ),
     );
@@ -747,8 +754,9 @@ class _SwiperItem extends StatelessWidget {
             ),
           ),
           ClipRRect(
-            borderRadius:
-                const BorderRadius.vertical(bottom: Radius.circular(24)),
+            borderRadius: const BorderRadius.vertical(
+              bottom: Radius.circular(24),
+            ),
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
               child: Container(
@@ -777,9 +785,7 @@ class _SwiperItem extends StatelessWidget {
                                 item.tags.join(' | '),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
+                                style: Theme.of(context).textTheme.titleMedium
                                     ?.copyWith(
                                       fontSize: 12,
                                       color: Theme.of(context)
@@ -805,13 +811,8 @@ class _SwiperItem extends StatelessWidget {
                             ),
                             child: Text(
                               'Watch now',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineMedium
-                                  ?.copyWith(
-                                    fontSize: 14,
-                                    color: Colors.black,
-                                  ),
+                              style: Theme.of(context).textTheme.headlineMedium
+                                  ?.copyWith(fontSize: 14, color: Colors.black),
                             ),
                           ),
                         ),

@@ -34,6 +34,7 @@ import 'package:vibes_only/src/feature/settings/settings_screen.dart';
 import 'package:vibes_only/src/feature/story_player/toy_command_service.dart';
 import 'package:vibes_only/src/feature/toy/cubit/toy_cubit.dart';
 import 'package:vibes_only/src/feature/toy/cubit/toy_cubit_mock.dart';
+import 'package:vibes_only/src/feature/vibes_ai/vibes_ai_screen.dart';
 import 'package:vibes_only/src/feature/vibes_tab/vibes_tab.dart';
 import 'package:vibes_only/src/service/promotion_checker.dart';
 import 'package:vibes_only/src/service/push_notification/push_notification.dart';
@@ -88,9 +89,7 @@ Future<void> main() async {
 
   /* App is locked to portrait mode */
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(VibesOnly(
-    themeMode: themeMode,
-  ));
+  runApp(VibesOnly(themeMode: themeMode));
 }
 
 class VibesOnly extends StatefulWidget {
@@ -110,17 +109,20 @@ class _VibesOnlyState extends State<VibesOnly> {
         BlocProvider(create: (context) => AppStoreCubit()),
         // Note that we have to assert the type of Bloc in the next line.
         BlocProvider<InAppPurchaseCubit>(
-            create: (context) => InAppPurchaseRevCatCubit()),
+          create: (context) => InAppPurchaseRevCatCubit(),
+        ),
         BlocProvider(create: (context) => AuthenticationCubit()),
         BlocProvider(create: (context) => BottomTabCubit()),
         BlocProvider(create: (context) => AdviceCubit()),
         BlocProvider<ToyCubit>(
-            create: (context) => kDebugMode ? ToyCubitMock() : ToyCubitImpl()),
+          create: (context) => kDebugMode ? ToyCubitMock() : ToyCubitImpl(),
+        ),
         BlocProvider(create: (context) => FavoritesCubit()),
         BlocProvider(create: (context) => HeardStoriesCubit()),
         BlocProvider(create: (context) => NetSpeedCubit(), lazy: false),
         BlocProvider<ToyCommandService>(
-            create: (context) => ToyCommandServiceImpl()),
+          create: (context) => ToyCommandServiceImpl(),
+        ),
       ],
       child: AdaptiveTheme(
         initial: AdaptiveThemeMode.dark,
@@ -191,19 +193,20 @@ final GoRouter _router = GoRouter(
       builder: (context, state) => const AuthenticationScreen(),
     ),
     GoRoute(
-        path: '/iap',
-        builder: (context, state) => const InAppPurchaseScreen(),
-        redirect: (context, state) {
-          if (FirebaseAuth.instance.currentUser == null) {
-            return '/login';
-          } else if (Platform.isAndroid ||
-              (state.uri.queryParameters['skippable'] == 'true' &&
-                  SyncSharedPreferences.userSkippedInitialIAP.value)) {
-            return '/main';
-          } else {
-            return null;
-          }
-        }),
+      path: '/iap',
+      builder: (context, state) => const InAppPurchaseScreen(),
+      redirect: (context, state) {
+        if (FirebaseAuth.instance.currentUser == null) {
+          return '/login';
+        } else if (Platform.isAndroid ||
+            (state.uri.queryParameters['skippable'] == 'true' &&
+                SyncSharedPreferences.userSkippedInitialIAP.value)) {
+          return '/main';
+        } else {
+          return null;
+        }
+      },
+    ),
     GoRoute(
       path: '/main',
       builder: (context, state) {
@@ -212,6 +215,7 @@ final GoRouter _router = GoRouter(
           settingsScreen: const SettingsScreen(),
           fetchPromotionsAndShowPopup: fetchPromotionsAndShowPopup,
           onStartCardGame: () => context.go(CardGameScreen.path),
+          whitneyScreen: const VibesAiScreen(),
         );
       },
       redirect: (context, state) {
@@ -225,9 +229,7 @@ final GoRouter _router = GoRouter(
         GoRoute(
           path: 'remote-lover/:code',
           builder: (context, state) {
-            return RemoteLoverEnterScreen(
-              code: state.pathParameters['code'],
-            );
+            return RemoteLoverEnterScreen(code: state.pathParameters['code']);
           },
         ),
       ],
@@ -244,14 +246,15 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: ShowCardScreen.path,
       pageBuilder: (context, state) {
-        CardGameDetails cardGameDetails =
-            CardGameDetails.fromJson(state.extra as Map<String, dynamic>);
+        CardGameDetails cardGameDetails = CardGameDetails.fromJson(
+          state.extra as Map<String, dynamic>,
+        );
 
         return FadeTransitionPage(
           child: ShowCardScreen(cardGameDetails: cardGameDetails),
         );
       },
-    )
+    ),
   ],
 );
 
@@ -272,9 +275,6 @@ class FadeTransitionPage<T> extends CustomTransitionPage<T> {
     Animation<double> secondaryAnimation,
     Widget child,
   ) {
-    return FadeTransition(
-      opacity: animation,
-      child: child,
-    );
+    return FadeTransition(opacity: animation, child: child);
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_app_presentation/flavors/flavor_config.dart';
@@ -98,6 +100,8 @@ class _ManualDetailsPageState extends State<ManualDetailsPage> {
                   builder: (c, state) {
                     return state.maybeWhen(
                       detailRetrieved: (details) {
+                        log(details.description);
+
                         return SingleChildScrollView(
                           padding: const EdgeInsets.symmetric(horizontal: 14)
                               .copyWith(
@@ -121,6 +125,7 @@ class _ManualDetailsPageState extends State<ManualDetailsPage> {
                                       .withValues(alpha: 0.8),
                                 ),
                               ),
+
                               HtmlWidget(details.description),
                             ],
                           ),

@@ -38,6 +38,7 @@ class VibeMainScreen extends StatefulWidget {
 
   /// See comment of [vibesTab].
   final Widget? settingsScreen;
+  final Widget? whitneyScreen;
 
   /// See comment of [vibesTab].
   final VoidCallback? onStartCardGame;
@@ -50,6 +51,7 @@ class VibeMainScreen extends StatefulWidget {
     this.vibesTab,
     this.settingsScreen,
     this.fetchPromotionsAndShowPopup,
+    this.whitneyScreen,
     this.onStartCardGame,
   });
 
@@ -78,9 +80,13 @@ class _VibeMainScreenState extends State<VibeMainScreen>
 
   @override
   void initState() {
+    print("widget binding observer");
     super.initState();
     _selectedPageIndex = Platform.isAndroid ? 3 : 0;
-    _pages[0] = DiscoveryScreen(settingsScreen: widget.settingsScreen);
+    _pages[0] = DiscoveryScreen(
+      settingsScreen: widget.settingsScreen,
+      whitneyScreen: widget.whitneyScreen,
+    );
     _pageController = PageController(initialPage: _selectedPageIndex);
     WidgetsBinding.instance.addObserver(this);
 
@@ -233,6 +239,7 @@ class _VibeMainScreenState extends State<VibeMainScreen>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
+    print("widget binding observer 2");
     if (state == AppLifecycleState.resumed) {
       BlocProvider.of<NetSpeedCubit>(context).testSpeed();
 
@@ -295,7 +302,10 @@ class _VibeMainScreenState extends State<VibeMainScreen>
   Widget _pageBuilder(int index) {
     assert(index >= 0 && index < _tabCounts);
     if (index == 0) {
-      return DiscoveryScreen(settingsScreen: widget.settingsScreen);
+      return DiscoveryScreen(
+        settingsScreen: widget.settingsScreen,
+        whitneyScreen: widget.whitneyScreen,
+      );
     } else if (index == 1) {
       return const SearchScreen();
     } else if (index == 2) {

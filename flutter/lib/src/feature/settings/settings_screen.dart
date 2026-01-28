@@ -35,6 +35,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+      
       appBar: BackButtonAppBar(context, onPressed: () => context.pop()),
       // appBar: AppBar(
       //   title: RawGestureDetector(

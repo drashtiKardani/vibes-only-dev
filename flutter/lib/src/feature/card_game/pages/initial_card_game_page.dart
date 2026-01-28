@@ -56,10 +56,7 @@ class _LetsGetNaughtyBottomSheet extends StatelessWidget {
       children: [
         Text(
           'Let\'s Get Naughty',
-          style: GoogleFonts.poppins(
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
-          ),
+          style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700),
         ),
         const Gap(20),
         Text(
@@ -101,9 +98,9 @@ class _LetsGetNaughtyBottomSheet extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context, true);
               },
-            )
+            ),
           ].map((e) => Expanded(child: e)).toList(),
-        )
+        ),
       ],
     );
   }

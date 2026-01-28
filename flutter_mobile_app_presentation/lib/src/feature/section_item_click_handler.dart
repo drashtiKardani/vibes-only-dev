@@ -12,6 +12,7 @@ import 'advice/advice_screen.dart';
 import 'detail_list/detail_list_screen.dart';
 import 'story_detail/story_detail_screen.dart';
 
+
 /// Call [onSectionItemClickHandler] + Report the name and type of clicked item
 void firstPageSectionItemClickHandler(BuildContext context, SectionItem item) {
   Analytics.logEvent(

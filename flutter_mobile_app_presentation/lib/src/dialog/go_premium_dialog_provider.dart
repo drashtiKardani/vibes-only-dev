@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobile_app_presentation/dialogs.dart';
 import 'package:flutter_mobile_app_presentation/gen/assets.gen.dart';
 import 'package:flutter_mobile_app_presentation/generated/l10n.dart';
 import 'package:flutter_mobile_app_presentation/src/service/analytics.dart';
 import 'package:flutter_mobile_app_presentation/theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 enum PremiumType { content, feature }
 
@@ -38,9 +40,10 @@ class GoPremiumDialogProvider {
                 color: context.colorScheme.onSurface.withValues(alpha: 0.1),
               ),
               child: Assets.svgs.iconPrimium.svg(
-                  height: 60,
-                  width: 60,
-                  package: 'flutter_mobile_app_presentation'),
+                height: 60,
+                width: 60,
+                package: 'flutter_mobile_app_presentation',
+              ),
             ),
             const SizedBox(height: 20),
             Text(
@@ -71,13 +74,38 @@ class GoPremiumDialogProvider {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () => onSubscribeButtonTapped(context),
+                    onPressed: () async {
+                      final email =
+                          FirebaseAuth.instance.currentUser?.email ?? '';
+                      final userId =
+                          FirebaseAuth.instance.currentUser?.uid ?? '';
+                      final Uri shopUri = Uri.parse(
+                        'https://subscription.vibesonly.com/?email=$email&user_id=$userId',
+                      );
+
+                      final result = await launchUrl(
+                        shopUri,
+                        mode: LaunchMode.externalApplication,
+                      );
+                      if (result) {
+                        Navigator.pop(context);
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       fixedSize: Size(context.mediaQuery.size.width, 48),
                     ),
                     child: Text(S.of(context).subscribe),
                   ),
                 ),
+                // Expanded(
+                //   child: ElevatedButton(
+                //     onPressed: () => onSubscribeButtonTapped(context),
+                //     style: ElevatedButton.styleFrom(
+                //       fixedSize: Size(context.mediaQuery.size.width, 48),
+                //     ),
+                //     child: Text(S.of(context).subscribe),
+                //   ),
+                // ),
               ],
             ),
           ],

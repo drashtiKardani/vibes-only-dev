@@ -7,8 +7,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobile_app_presentation/flavors.dart';
+import 'package:flutter_mobile_app_presentation/flutter_mobile_app_presentation.dart';
 import 'package:flutter_mobile_app_presentation/in_app_purchase.dart';
 import 'package:flutter_mobile_app_presentation/preferences.dart';
+import 'package:get_it/get_it.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:vibes_only/src/cubit/iap/models/app_subscription.dart';
 
@@ -50,24 +52,48 @@ class InAppPurchaseRevCatCubit extends InAppPurchaseCubit {
 
   @override
   Future<void> checkUserSubscription() async {
-    if (Flavor.isStaging()) {
-      emit(
-        SyncSharedPreferences.simulatedSubscription.value
-            ? InAppPurchaseState.active(_simulatedValidSubscriptionResponse)
-            : const InAppPurchaseState.inactive(),
-      );
-      return;
-    }
+    // if (Flavor.isStaging()) {
+    //   emit(
+    //     SyncSharedPreferences.simulatedSubscription.value
+    //         ? InAppPurchaseState.active(_simulatedValidSubscriptionResponse)
+    //         : const InAppPurchaseState.inactive(),
+    //   );
+    //   return;
+    // }
     if (FirebaseAuth.instance.currentUser == null) {
       emit(const InAppPurchaseState.userNotLoggedIn());
     } else {
       try {
         // Sync to migrate already subscribed users or
         // in case user did purchased a package outside the app flow, e.g. using a promo link.
-        await Purchases.syncPurchases();
 
-        CustomerInfo customerInfo = await Purchases.getCustomerInfo();
-        _checkForActiveSubscription(customerInfo);
+        final result = await GetIt.I<VibeApiNew>().getUserProfile(
+          FirebaseAuth.instance.currentUser!.uid,
+        );
+        try {
+          if (result['data']['is_exist'] == true) {
+            if (result['data']['subscription_details']['status'] == 'active') {
+              print("Subscription successfully verified from backend.");
+              emit(
+                InAppPurchaseState.active(_simulatedValidSubscriptionResponse),
+              );
+            } else {
+              print("No active subscription found from backend.");
+              emit(const InAppPurchaseState.inactive());
+            }
+          } else {
+            print("No active subscription found from backend.");
+            emit(const InAppPurchaseState.inactive());
+          }
+        } catch (e) {
+          print("Error parsing subscription status from backend: $e");
+          emit(const InAppPurchaseState.inactive());
+        }
+
+        // await Purchases.syncPurchases();
+
+        // CustomerInfo customerInfo = await Purchases.getCustomerInfo();
+        // _checkForActiveSubscription(customerInfo);
       } on PlatformException catch (e) {
         FirebaseCrashlytics.instance.recordError(e, StackTrace.current);
         emit(InAppPurchaseState.error(e));

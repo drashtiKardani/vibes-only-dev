@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 
+import 'package:flutter_mobile_app_presentation/src/cubit/vibes_ai/models/chat_with_ai.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 import 'package:vibes_common/vibes.dart';
@@ -10,6 +11,16 @@ part 'vibe_api_new.g.dart';
 abstract class VibeApiNew {
   factory VibeApiNew(Dio dio, {String baseUrl, ParseErrorLogger? errorLogger}) =
       _VibeApiNew;
+
+  @POST('/users/social-login/')
+  Future<dynamic> socialLogin(@Body() Map<String, dynamic> body);
+
+  @GET('/users/user-profile/')
+  Future<dynamic> getUserProfile(@Query('firebase_uid') String firebaseUid);
+
+  @POST('https://ai-chat.vibesonly.com/chat')
+  // @POST('https://isela-unumpired-heriberto.ngrok-free.dev/chat')
+  Future<ChatResponse> sendChatMessage(@Body() ChatRequest request);
 
   @GET('stories/homes/active_home/')
   Future<Home> home();
@@ -70,19 +81,23 @@ abstract class VibeApiNew {
 
   @GET('/financial/apple_verify_purchase/')
   Future<SubscriptionResponse> checkSubscriptionApple(
-      @Query('device_id') String deviceId);
+    @Query('device_id') String deviceId,
+  );
 
   @GET('/financial/google_verify_purchase/')
   Future<SubscriptionResponse> checkSubscriptionGoogle(
-      @Query('device_id') String deviceId);
+    @Query('device_id') String deviceId,
+  );
 
   @POST('/financial/apple_verify_purchase/')
   Future<SubscriptionResponse> verifyPurchaseApple(
-      @Body() PurchaseVerificationData verificationData);
+    @Body() PurchaseVerificationData verificationData,
+  );
 
   @POST('/financial/google_verify_purchase/')
   Future<SubscriptionResponse> verifyPurchaseGoogle(
-      @Body() PurchaseVerificationData verificationData);
+    @Body() PurchaseVerificationData verificationData,
+  );
 
   @GET('/games/game-cards/')
   Future<AllGameCard> getGameCards(
@@ -106,7 +121,8 @@ extension PlatformAgnosticMethods on VibeApiNew {
   }
 
   Future<SubscriptionResponse> verifyPurchase(
-      @Body() PurchaseVerificationData verificationData) {
+    @Body() PurchaseVerificationData verificationData,
+  ) {
     return Platform.isIOS
         ? verifyPurchaseApple(verificationData)
         : verifyPurchaseGoogle(verificationData);

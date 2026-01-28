@@ -44,7 +44,8 @@ class ChoosePatternScreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: GridView.builder(
+                  child: 
+                  GridView.builder(
                     itemCount: itemCount,
                     physics: ClampingScrollPhysics(),
                     padding: EdgeInsets.only(
@@ -80,6 +81,9 @@ class ChoosePatternScreen extends StatelessWidget {
                       );
                     },
                   ),
+               
+               
+               
                 ),
               ],
             ),

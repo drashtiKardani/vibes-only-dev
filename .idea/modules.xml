@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/flutter_mobile_app_presentation/melos_flutter_mobile_app_presentation.iml" filepath="$PROJECT_DIR$/flutter_mobile_app_presentation/melos_flutter_mobile_app_presentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_panel/melos_flutter_panel.iml" filepath="$PROJECT_DIR$/flutter_panel/melos_flutter_panel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_video_share_page/melos_flutter_video_share_page.iml" filepath="$PROJECT_DIR$/flutter_video_share_page/melos_flutter_video_share_page.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_common/melos_vibes_common.iml" filepath="$PROJECT_DIR$/flutter_common/melos_vibes_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter/melos_vibes_only.iml" filepath="$PROJECT_DIR$/flutter/melos_vibes_only.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_vibes_only_frontends.iml" filepath="$PROJECT_DIR$/melos_vibes_only_frontends.iml" />
+    </modules>
+  </component>
+</project>

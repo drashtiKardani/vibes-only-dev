@@ -64,8 +64,9 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16)
-              .copyWith(top: context.viewPadding.top),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+          ).copyWith(top: context.viewPadding.top),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 20,
@@ -84,21 +85,29 @@ class _SearchScreenState extends State<SearchScreen> {
                   builder: (context, state) {
                     return state.maybeWhen(
                       querySearchResult: (result) {
-                        return GridView.builder(
-                          shrinkWrap: true,
-                          physics: const ClampingScrollPhysics(),
-                          padding: EdgeInsets.zero,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 16,
-                            crossAxisSpacing: 16,
-                          ),
-                          itemCount: result.length,
-                          itemBuilder: (context, index) {
-                            return _SearchItem(result[index]);
-                          },
-                        );
+                        return _controller.text.isEmpty
+                            ? SingleChildScrollView(
+                                physics: const ClampingScrollPhysics(),
+                                padding: const EdgeInsets.only(
+                                  bottom: kBottomNavigationBarHeight + 90,
+                                ),
+                                child: _tilesGrid(),
+                              )
+                            : GridView.builder(
+                                shrinkWrap: true,
+                                physics: const ClampingScrollPhysics(),
+                                padding: EdgeInsets.zero,
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      mainAxisSpacing: 16,
+                                      crossAxisSpacing: 16,
+                                    ),
+                                itemCount: result.length,
+                                itemBuilder: (context, index) {
+                                  return _SearchItem(result[index]);
+                                },
+                              );
                       },
                       initial: () {
                         return SingleChildScrollView(
@@ -262,6 +271,7 @@ class _SearchScreenState extends State<SearchScreen> {
       alignment: Alignment.center,
       child: Text(
         category.title,
+        textAlign: TextAlign.center,
         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
       ),
     );
@@ -319,8 +329,9 @@ class _SearchBar extends StatelessWidget {
                           border: InputBorder.none,
                           hintText: 'Search categories',
                           hintStyle: TextStyle(
-                            color: context.colorScheme.onSurface
-                                .withValues(alpha: 0.5),
+                            color: context.colorScheme.onSurface.withValues(
+                              alpha: 0.5,
+                            ),
                           ),
                         ),
                       ),
@@ -347,32 +358,35 @@ class _SearchItem extends StatelessWidget {
     if (result.story != null) {
       var story = result.story!;
       return SectionItem(
-          id: story.id.toString(),
-          title: story.title,
-          description: story.description,
-          thumbnail: story.thumbnail(Style.showcaseMedium),
-          type: SectionType.story,
-          heroTag: 'search_story#${story.id}');
+        id: story.id.toString(),
+        title: story.title,
+        description: story.description,
+        thumbnail: story.thumbnail(Style.showcaseMedium),
+        type: SectionType.story,
+        heroTag: 'search_story#${story.id}',
+      );
     } else if (result.character != null) {
       var character = result.character!;
       return SectionItem(
-          id: character.id.toString(),
-          title: character.firstName ?? '',
-          //TODO change
-          description: 'Character',
-          thumbnail: character.profileImage,
-          type: SectionType.character,
-          heroTag: 'search_character#${character.id}');
+        id: character.id.toString(),
+        title: character.firstName ?? '',
+        //TODO change
+        description: 'Character',
+        thumbnail: character.profileImage,
+        type: SectionType.character,
+        heroTag: 'search_character#${character.id}',
+      );
     } else if (result.video != null) {
       var video = result.video!;
       return SectionItem(
-          id: video.id.toString(),
-          title: video.title,
-          //TODO change
-          description: 'Video',
-          thumbnail: video.thumbnail ?? '',
-          type: SectionType.video,
-          heroTag: 'search_video#${video.id}');
+        id: video.id.toString(),
+        title: video.title,
+        //TODO change
+        description: 'Video',
+        thumbnail: video.thumbnail ?? '',
+        type: SectionType.video,
+        heroTag: 'search_video#${video.id}',
+      );
     } else {
       return null;
     }
@@ -381,14 +395,19 @@ class _SearchItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InAppPurchaseCubit, InAppPurchaseState>(
-        builder: (context, subscription) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 4.0),
-        child: sectionItem != null
-            ? showcaseSmall(context, sectionItem!, onSectionItemClickHandler,
-                subscription.isNotActive())
-            : const SizedBox.shrink(),
-      );
-    });
+      builder: (context, subscription) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 4.0),
+          child: sectionItem != null
+              ? showcaseSmall(
+                  context,
+                  sectionItem!,
+                  onSectionItemClickHandler,
+                  subscription.isNotActive(),
+                )
+              : const SizedBox.shrink(),
+        );
+      },
+    );
   }
 }

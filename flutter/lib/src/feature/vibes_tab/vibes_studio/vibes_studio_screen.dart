@@ -67,7 +67,7 @@ class _VibesStudioScreenState extends State<VibesStudioScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Customize your vibe for a unique, personalized experience.',
+                              'Customize your vibe for a unique, personalized experience',
                               textAlign: TextAlign.center,
                               style: context.textTheme.displaySmall?.copyWith(
                                 fontSize: 24,
@@ -75,7 +75,7 @@ class _VibesStudioScreenState extends State<VibesStudioScreen> {
                             ),
                             const Gap(20),
                             Text(
-                              'Pick and combine patterns to create the ideal Vibe for you.\n\nEdit your Vibe by adjusting duration and intensity of each pattern',
+                              'Pick and combine patterns to create the ideal Vibe for you.\n\nEdit your Vibe by adjusting duration and intensity of each pattern.',
                               textAlign: TextAlign.center,
                               style: context.textTheme.titleMedium?.copyWith(
                                 color: context.colorScheme.onSurface.withValues(
